@@ -13,7 +13,6 @@ const Timer = () => {
     } else {
       clearInterval(intervalRef.current);
     }
-
     return () => clearInterval(intervalRef.current);
   }, [isRunning]);
 
@@ -25,20 +24,20 @@ const Timer = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-tr from-gray-900 via-black to-gray-800 text-white px-4">
-      <div className="border border-white bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-2xl shadow-2xl w-full max-w-lg flex flex-col items-center">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-tr from-gray-900 via-black to-gray-800 text-white px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="border border-white bg-white/10 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-2xl shadow-2xl w-full max-w-md sm:max-w-lg flex flex-col items-center">
         
-        <h1 className="text-2xl md:text-4xl font-extrabold mb-8 tracking-wide animate-pulse text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500">
+        <h1 className="text-xl sm:text-3xl md:text-4xl font-extrabold mb-6 sm:mb-8 tracking-wide animate-pulse text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500">
           Stopwatch
         </h1>
 
-        <div className="text-4xl md:text-5xl font-mono mb-10 text-neon border-4 border-pink-500 px-10 py-6 rounded-xl shadow-lg animate-glow">
+        <div className="text-3xl sm:text-4xl md:text-5xl font-mono mb-8 sm:mb-10 text-neon border-4 border-pink-500 px-6 sm:px-10 py-4 sm:py-6 rounded-xl shadow-lg animate-glow text-center w-full">
           {formatTime(seconds)}
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 w-full">
           <button
-            className={`px-6 py-3 rounded-xl font-bold text-lg shadow-xl transition-transform duration-300 hover:scale-105 border-2 animate-neon-border ${
+            className={`w-full sm:w-auto px-5 py-3 sm:px-6 sm:py-3 rounded-xl font-bold text-base sm:text-lg shadow-xl transition-transform duration-300 hover:scale-105 border-2 animate-neon-border ${
               isRunning
                 ? 'bg-red-500 hover:bg-red-700 border-pink-400'
                 : 'bg-green-500 hover:bg-green-700 border-green-300'
@@ -49,7 +48,7 @@ const Timer = () => {
           </button>
 
           <button
-            className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-xl shadow-xl transition-transform duration-300 hover:scale-105 border-2 border-yellow-300 animate-neon-border"
+            className="w-full sm:w-auto px-5 py-3 sm:px-6 sm:py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-xl shadow-xl transition-transform duration-300 hover:scale-105 border-2 border-yellow-300 animate-neon-border"
             onClick={() => {
               setIsRunning(false);
               setSeconds(0);
